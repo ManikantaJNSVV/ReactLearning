@@ -1,0 +1,52 @@
+Day 1:
+
+Writing sample Hello world code in javascript
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="./App.js">
+   
+    </script>
+</body>
+
+</html>
+
+ <script>
+        const heading = document.createElement('h7');
+        var text = document.createTextNode("Hello, world!");
+        heading.appendChild(text);
+        const root = document.getElementById('root');
+        root.appendChild(heading);
+    </script>
+
+Creating element in react and attaching it to DOM
+// const heading = React.createElement("h1", {}, "Hello world from react");
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+Creating Nested elements in react and attaching it to DOM
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child1" }, [
+    React.createElement("h1", {}, "Hello H1"),
+    React.createElement("h2", {}, "Hello H2"),
+  ]),
+  React.createElement("div", { id: "child2" }, [
+    React.createElement("h1", {}, "Hello H1"),
+    React.createElement("h2", {}, "Hello H2"),
+  ]),
+]);
+root.render(parent);
+
