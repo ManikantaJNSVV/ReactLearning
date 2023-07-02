@@ -33,6 +33,7 @@ Writing sample Hello world code in javascript
     </script>
 
 Creating element in react and attaching it to DOM
+
 // const heading = React.createElement("h1", {}, "Hello world from react");
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
@@ -49,4 +50,63 @@ const parent = React.createElement("div", { id: "parent" }, [
   ]),
 ]);
 root.render(parent);
+
+Day2&Day3
+
+Babel transpiles jsx into React.createElement
+React.createElement is an object
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child1" }, [
+    React.createElement("h1", {}, "Hello H1"),
+    React.createElement("h2", {}, "Hello H2"),
+  ]),
+  React.createElement("div", { id: "child2" }, [
+    React.createElement("h1", {}, "Hello H1"),
+    React.createElement("h2", {}, "Hello H2"),
+  ]),
+]);
+root.render(parent);
+
+New Extensions
+1. Bracket Pair Colorization Toggler
+2. Prettier
+
+
+Functional components: Normal javascript function which returns some jsx code(which in transpiled into React.createElement by babel transpiler)
+Component Composition: One component into another component in react
+JSX: jsx does have only one root 
+React.Fragment: when we have to use two parents inside jsx we can use <React.Fragment></React.Fragment> or <></>(empty tag)
+
+// In the below code snippet we can use functional component i.e TitleFunction in the following 3 ways  
+      1.{TitleFunction()}
+      2.<TitleFunction></TitleFunction>
+      3.<TitleFunction />
+import React from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+
+const root = createRoot(document.getElementById("root"));
+
+const TitleFunction = () => <h1>Hello React element</h1>; 
+
+const HeaderComponent = () => {
+  return (
+    <div>
+      {TitleFunction()}
+      <TitleFunction></TitleFunction>
+      <TitleFunction />
+
+      <span>Learning React with foundation</span>
+    </div>
+  );
+};
+
+root.render(<HeaderComponent />);
+
+
+
+
 

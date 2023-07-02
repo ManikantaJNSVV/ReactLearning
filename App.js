@@ -2,15 +2,24 @@
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "Hello H1"),
-    React.createElement("h2", {}, "Hello H2"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "Hello H1"),
-    React.createElement("h2", {}, "Hello H2"),
-  ]),
-]);
-root.render(parent);
+import React from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+
+const root = createRoot(document.getElementById("root"));
+
+const TitleFunction = () => <h1>Hello React element</h1>; 
+
+const HeaderComponent = () => {
+  return (
+    <div>
+      {TitleFunction()}
+      <TitleFunction></TitleFunction>
+      <TitleFunction />
+
+      <span>Learning React with foundation</span>
+    </div>
+  );
+};
+
+root.render(<HeaderComponent />);
